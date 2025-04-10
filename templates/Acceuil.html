@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil et Demarrage</title>
+    <link rel="stylesheet" href="{{url_for('static', filename=('css/home.css'))}}">
+    
+</head>
+<body>
+    <div>
+        <section class="Welcome active">
+            <h1>Bienvenue dans SpendSmart !</h1>
+            <p>
+                SpendSmart-L'application qui vous aide a depenser de maniere intelligente.
+            </p>
+            <button id="StartButton"> Demarrer </button>
+        </section>
+
+        <section class="Enregitrement">
+            <h1>Enregitrement</h1>
+            <p>
+                Remplissez vos informations personelles...
+            </p>
+            <form action="Mes informations" method="post">
+                <div>
+                    <ul>
+                        <li>
+                            <label for="name">Nom&nbsp;</label>
+                            <input type="text" id="name" name="user_name">
+                        </li>
+                        <li>
+                            <label for="age">Age&nbsp;</label>
+                            <input type="number" id="age" name="user-age">
+                        </li>
+                        <li>
+                            <label for="revenue">Revenue Mensuel&nbsp;</label>
+                            <input type="number" id="revenue" name="user_revenue">
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="button" id=""> Precedent </button>
+                <button type="button" id="EnregitrementButton"> Suivant </button>
+            </form>
+
+        </section>
+
+        <section class="cartegories">
+            <h1>Categories Budgetaires</h1>
+            <p>
+                Selctionnez en cliquant sur les Categories qui vous implique :
+            </p>
+            <form action="Mes categories Budgetaires" method="post">
+                <ul>
+                    <li>
+                        <span>Logement</span>
+                        <label for="logementOUI">OUI</label> <input type="radio" value="oui" name="logement" id="logementOUI">
+                        <label for="logementNON">NON</label> <input type="radio" value="non" name="logement" id="logementNON">
+                    </li>
+                    <li>
+                        <span>Alimentation</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    <li>
+                        <span>Transport</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    <li>
+                        <span>Sante</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    <li>
+                        <span>Epargnes personelles</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    
+                </ul>
+            </form>
+        </section>
+
+        <section class="Priorites">
+            <h1>Vos priorites personnelles</h1>
+            <p>
+                Choisissez les categories budgetaires pour lesquelles vous etes le moins confiant a ce que l'on modifie
+            </p>
+            <form action="Mes categories Budgetaires" method="post">
+                <ul>
+                    <li>
+                        <span>Logement</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    <li>
+                        <span>Alimentation</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    <li>
+                        <span>Transport</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    <li>
+                        <span>Sante</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    <li>
+                        <span>Epargnes personelles</span>
+                        <label>OUI</label> <input type="radio">
+                        <label>NON</label> <input type="radio">
+                    </li>
+                    
+                </ul>
+            </form>
+        </section>
+
+        <section class="Depenses">
+            <h1>Vos depenses journalieres</h1>
+            <p>
+                Exprimez vous sincerement et donnez nous vos depenses journalieres dans chaque cartegories budgetaires prealablement selctionnees
+            </p>
+            <form action="Mes anciennes depenses" method="post">
+                <div>
+                    <ul>
+                        <li>
+                            <label for="depenses">Logement&nbsp;</label>
+                            <input type="number" name="user_old-logement" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Alimentation&nbsp;</label>
+                            <input type="number" name="user_old-alimentation" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Transport&nbsp;</label>
+                            <input type="number" name="user_old-transport" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Sante&nbsp;</label>
+                            <input type="number" name="user_old-sante" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Epargnes personelles&nbsp;</label>
+                            <input type="number" name="user_old-epargnes" id="depenses">
+                        </li>
+
+                    </ul>
+                </div>
+            </form>
+        </section>
+    </div>
+    <script src="{{url_for('static', filename=('javascript/home.js'))}}"></script>   
+</body>
+
+</html>
