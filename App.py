@@ -8,8 +8,30 @@ app = Flask(__name__)
 def App() :
     return render_template('Acceuil.html')
 
-@app.route("/apercu")
+@app.route("/apercu", methods=['POST'])
 def Apercu() :
 
-    logement = request.get('logement')
+    # user_name
+    # user_age
+    # user_revenue
+
+    # logement
+    # alimentation
+    # transport
+    # sante
+    # epargnes
+
+    # priorites_logement
+    # priorites_alimentation
+    # priorites_transport
+    # priorites_sante
+    # priorites_epargnes
+
+    informations = {}
+    data = request.form
+    for key, value in data.items():
+        informations[key] = value
+
+    # calcul(informations)
+    print(informations)
     return render_template('Apercu.html')
