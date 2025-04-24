@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+
+from Core import Core
 
 app = Flask(__name__)
 
@@ -30,11 +32,20 @@ def Apercu() :
     # priorites_sante
     # priorites_epargnes
 
+    # user_old_logement
+    # user_old_alimentation
+    # user_old_transport
+    # user_old_sante
+    # user_old_epargnes
+
     informations = {}
     data = request.form
     for key, value in data.items():
         informations[key] = value
 
-    # calcul(informations)
     print(informations)
-    return render_template('Apercu.html')
+    core = Core(informations)
+    regle50_30_20 = core.regle50_30_20()
+    print(regle50_30_20)
+
+    return render_template('Apercu.html', resultat=regle50_30_20)
