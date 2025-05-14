@@ -10,93 +10,97 @@
 </head>
 
 <body>
-    <form action="/apercu" method="post">
-        <div class="card">
-            <section class="Welcome active">
-                <h1>Bienvenue dans Harmoneo C !</h1>
-                <p>
-                    Harmoneo C-Avec nous anticipez vos depnses,et securisez votre tresorerie.
-                </p>
-            </section>
 
-            <section class="Enregitrement">
-                <h1>Enregitrement</h1>
-                <p>
-                    Pour nous permettre de vous offrir une expérience personnalisée et sécurisée, veuillez prendre un
-                    moment pour
-                    compléter vos informations personnelles.
-                </p>
-                
-                <ul>
-                    <li>
-                        <label for="name">Nom&nbsp;</label>
-                        <input type="text" id="name" name="user_name">
-                    </li>
-                    <li>
-                        <label for="age">Age&nbsp;</label>
-                        <input type="number" id="age" name="user_age">
-                    </li>
-                    <li>
-                        <label for="revenue">Revenue Mensuel&nbsp;</label>
-                        <input type="number" id="revenue" name="user_revenue">
-                    </li>
-                </ul>
-            </section>
+    <div class="logo-container">
+        <span class="logo-container-img"></span>
+    </div>
 
-            <section class="Categories">
-                <h1>Categories Budgetaires</h1>
-                <p>
-                    Veuillez sélectionner les catégories budgétaires qui vous concernent le plus, car cela nous
-                    permettra de mieux gérer vos dépenses.
-                    Selctionnez en cliquant sur les Categories qui vous implique :
-                </p>
-                <ul>
-                    <li>
-                        <span>Logement</span>
-                        <label for="logementOUI">OUI</label> <input type="radio" value="oui" name="logement"
-                            id="logementOUI">
-                        <label for="logementNON">NON</label> <input type="radio" value="non" name="logement"
-                            id="logementNON">
-                    </li>
-                    <li>
-                        <span>Alimentation</span>
-                        <label for="AlimentationOUI">OUI</label> <input type="radio" value="oui" name="alimentation"
-                            id="AlimentationOUI">
-                        <label for="AlimentationOUI">NON</label> <input type="radio" value="non" name="alimentation"
-                            id="AlimentationNON">
-                    </li>
-                    <li>
-                        <span>Transport</span>
-                        <label for="TransportOUI">OUI</label> <input type="radio" value="oui" name="transport"
-                            id="TransportOUI">
-                        <label for="TransportNON">NON</label> <input type="radio" value="non" name="transport"
-                            id="TransportNON">
-                    </li>
-                    <li>
-                        <span>Sante</span>
-                        <label for="SanteOUI">OUI</label> <input type="radio" value="oui" name="sante"
-                            id="SanteOUI">
-                        <label for="SanteNON">NON</label> <input type="radio" value="oui" name="sante"
-                            id="SanteNON">
-                    </li>
-                    <li>
-                        <span>Epargnes personelles</span>
-                        <label for="EpargnesOUI">OUI</label> <input type="radio" value="oui" name="epargnes"
-                            id="EpargnesOUI">
-                        <label for="EpargnesNON">NON</label> <input type="radio" value="non" name="epargnes"
-                            id="EpargnesNON">
-                    </li>
-
-                </ul>
-            </section>
-
-            <section class="Priorites">
-                <h1>Vos priorites personnelles</h1>
-                <p>
-                    Identifier vos priorités financières afin de nous permetttre prendre des décisions éclairées pour
-                    optimiser votre budget
-                    Choisissez en deux (02) les categories budgetaires :
-                </p>
+    <div class="contenair">
+        <form action="/apercu" method="post">
+            <div class="card">
+                <section class="Welcome active">
+                    <h1>Harmoneo <span>C</span></h1>
+                    <p>
+                        Harmoneo C-Avec nous anticipez vos depnses,et securisez votre tresorerie.
+                    </p>
+                </section>
+    
+                <section class="Enregitrement">
+                    <h1>Enregitrement</h1>
+                    <p>
+                        Pour nous permettre de vous offrir une expérience personnalisée et sécurisée, veuillez prendre un
+                        moment pour
+                        compléter vos informations personnelles.
+                    </p>
+    
+                    <ul>
+                        <li>
+                            <label for="name">Nom&nbsp;</label>
+                            <input type="text" id="name" name="user_name">
+                        </li>
+                        <li>
+                            <label for="age">Age&nbsp;</label>
+                            <input type="number" id="age" name="user_age">
+                        </li>
+                        <li>
+                            <label for="revenue">Revenue Mensuel&nbsp;</label>
+                            <input type="number" id="revenue" name="user_revenue">
+                        </li>
+                    </ul>
+                </section>
+    
+                <section class="Categories">
+                    <h1>Categories Budgetaires</h1>
+                    <p>
+                        Veuillez sélectionner les catégories budgétaires qui vous concernent le plus, car cela nous
+                        permettra de mieux gérer vos dépenses.
+                        Selctionnez en cliquant sur les Categories qui vous implique :
+                    </p>
+                    <ul>
+                        <li>
+                            <span>Logement</span>
+                            <label for="logementOUI">OUI</label> <input type="radio" value="oui" name="logement"
+                                id="logementOUI">
+                            <label for="logementNON">NON</label> <input type="radio" value="non" name="logement"
+                                id="logementNON">
+                        </li>
+                        <li>
+                            <span>Alimentation</span>
+                            <label for="AlimentationOUI">OUI</label> <input type="radio" value="oui" name="alimentation"
+                                id="AlimentationOUI">
+                            <label for="AlimentationOUI">NON</label> <input type="radio" value="non" name="alimentation"
+                                id="AlimentationNON">
+                        </li>
+                        <li>
+                            <span>Transport</span>
+                            <label for="TransportOUI">OUI</label> <input type="radio" value="oui" name="transport"
+                                id="TransportOUI">
+                            <label for="TransportNON">NON</label> <input type="radio" value="non" name="transport"
+                                id="TransportNON">
+                        </li>
+                        <li>
+                            <span>Sante</span>
+                            <label for="SanteOUI">OUI</label> <input type="radio" value="oui" name="sante" id="SanteOUI">
+                            <label for="SanteNON">NON</label> <input type="radio" value="oui" name="sante" id="SanteNON">
+                        </li>
+                        <li>
+                            <span>Epargnes personelles</span>
+                            <label for="EpargnesOUI">OUI</label> <input type="radio" value="oui" name="epargnes"
+                                id="EpargnesOUI">
+                            <label for="EpargnesNON">NON</label> <input type="radio" value="non" name="epargnes"
+                                id="EpargnesNON">
+                        </li>
+    
+                    </ul>
+                </section>
+    
+                <section class="Priorites">
+                    <h1>Vos priorites personnelles</h1>
+                    <p>
+                        Identifier vos priorités financières afin de nous permetttre prendre des décisions éclairées pour
+                        optimiser votre budget
+                        Choisissez en deux (02) les categories budgetaires :
+                    </p>
                     <ul>
                         <li>
                             <span>Logement</span>
@@ -107,10 +111,10 @@
                         </li>
                         <li>
                             <span>Alimentation</span>
-                            <label for="AlimentationOUI">OUI</label> <input type="radio" value="oui" name="priorites_alimentation"
-                                id="AlimentationOUI">
-                            <label for="AlimentationOUI">NON</label> <input type="radio" value="non" name="priorites_alimentation"
-                                id="AlimentationNON">
+                            <label for="AlimentationOUI">OUI</label> <input type="radio" value="oui"
+                                name="priorites_alimentation" id="AlimentationOUI">
+                            <label for="AlimentationNON">NON</label> <input type="radio" value="non"
+                                name="priorites_alimentation" id="AlimentationNON">
                         </li>
                         <li>
                             <span>Transport</span>
@@ -123,61 +127,61 @@
                             <span>Sante</span>
                             <label for="SanteOUI">OUI</label> <input type="radio" value="oui" name="priorites_sante"
                                 id="SanteOUI">
-                            <label for="SanteNON">NON</label> <input type="radio" value="oui" name="priorites_ante"
+                            <label for="SanteNON">NON</label> <input type="radio" value="non" name="priorites_ante"
                                 id="SanteNON">
                         </li>
                         <li>
                             <span>Epargnes personelles</span>
                             <label for="EpargnesOUI">OUI</label> <input type="radio" value="oui" name="priorites_epargnes"
                                 id="EpargnesOUI">
-                            <label for="EpargnesNON">NON</label> <input type="radio" value="oui" name="priorites_epargnes"
+                            <label for="EpargnesNON">NON</label> <input type="radio" value="non" name="priorites_epargnes"
                                 id="EpargnesNON">
                         </li>
-
+    
                     </ul>
-                </form>
-            </section>
-
-            <section class="Depenses">
-                <h1>Vos depenses journalieres</h1>
-                <p>
-                    Pour nous permettre de vous aider au mieux, veuillez indiquer sincèrement le budget que vous avez
-                    l'habitude de dépenser dans chaque catégorie.
-                    Votre honnêteté nous aidera à vous fournir des conseils personnalisés et pertinents.
-                    Saisissez vos depenses journalieres dans chaque cartegories budgetaires prealablement selctionnees :
-                </p>
-                <ul>
-                    <li>
-                        <label for="depenses">Logement&nbsp;</label>
-                        <input type="number" name="user_old_logement" id="depenses">
-                    </li>
-                    <li>
-                        <label for="depenses">Alimentation&nbsp;</label>
-                        <input type="number" name="user_old_alimentation" id="depenses">
-                    </li>
-                    <li>
-                        <label for="depenses">Transport&nbsp;</label>
-                        <input type="number" name="user_old_transport" id="depenses">
-                    </li>
-                    <li>
-                        <label for="depenses">Sante&nbsp;</label>
-                        <input type="number" name="user_old_sante" id="depenses">
-                    </li>
-                    <li>
-                        <label for="depenses">Epargnes personelles&nbsp;</label>
-                        <input type="number" name="user_old_epargnes" id="depenses">
-                    </li>
-
-                </ul>
-            </section>
-        </div>
-
-        <div class="">
-            <button type="button" id="Precedent"> Precedent </button>
-            <button type="submit" id="Suivant"> Demarrer </button>
-        </div>
+                </section>
+    
+                <section class="Depenses">
+                    <h1>Vos depenses journalieres</h1>
+                    <p>
+                        Pour nous permettre de vous aider au mieux, veuillez indiquer sincèrement le budget que vous avez
+                        l'habitude de dépenser dans chaque catégorie.
+                        Votre honnêteté nous aidera à vous fournir des conseils personnalisés et pertinents.
+                        Saisissez vos depenses journalieres dans chaque cartegories budgetaires prealablement selctionnees :
+                    </p>
+                    <ul>
+                        <li>
+                            <label for="depenses">Logement&nbsp;</label>
+                            <input type="number" name="user_old_logement" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Alimentation&nbsp;</label>
+                            <input type="number" name="user_old_alimentation" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Transport&nbsp;</label>
+                            <input type="number" name="user_old_transport" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Sante&nbsp;</label>
+                            <input type="number" name="user_old_sante" id="depenses">
+                        </li>
+                        <li>
+                            <label for="depenses">Epargnes personelles&nbsp;</label>
+                            <input type="number" name="user_old_epargnes" id="depenses">
+                        </li>
+    
+                    </ul>
+                </section>
+            </div>
+    
+            <div class="action-buttons">
+                <button type="button" id="Precedent">Precedent</button>
+                <button type="submit" id="Suivant">Demarrer</button>
+            </div>
+        </form>
+    
     </div>
-
     <script src="{{url_for('static', filename=('javascript/home.js'))}}"></script>
 </body>
 

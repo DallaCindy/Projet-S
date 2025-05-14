@@ -46,6 +46,15 @@ def Apercu() :
     print(informations)
     core = Core(informations)
     regle50_30_20 = core.regle50_30_20()
-    print(regle50_30_20)
+    regle75_15_10 = core.regle75_15_10()
+    personnaliser = core.personnaliser()
 
-    return render_template('Apercu.html', resultat=regle50_30_20)
+    print(regle50_30_20)
+    print(regle75_15_10)
+    print(personnaliser)
+
+    return render_template('Apercu.html',
+        resultat=regle50_30_20,
+        resultat2=regle75_15_10,
+        resultat3=personnaliser
+    )
