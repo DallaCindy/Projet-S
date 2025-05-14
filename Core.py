@@ -137,35 +137,163 @@ class Core:
     def personnaliser(self) :
          
         biblio_budgetaires  = {}
+        C = len(self.categories_selectionner)
+        if C == 5 : 
 
-        for category in self.categories_selectionner :
+            for category in self.categories_selectionner :
 
-            if category == self.__categories[0] :
+                if category == self.__categories[0] :
 
-                biblio_budgetaires[category] = 0.3 * self.revenue
+                    biblio_budgetaires[category] = 0.3 * self.revenue
 
-            if category == self.__categories[1] :
+                if category == self.__categories[1] :
+                    
+                    biblio_budgetaires[category] = 0.15 * self.revenue
+
+                if category == self.__categories[2] :
+                    
+                    biblio_budgetaires[category] = 0.18 * self.revenue
+
+                if category == self.__categories[3] :
+                    
+                    biblio_budgetaires[category] = 0.07 * self.revenue
+
+                if category == self.__categories[4] :
+                    
+                    biblio_budgetaires[category] = 0.1 * self.revenue
+
+                if category in self.priorites :
+
+                    biblio_budgetaires[category] += 0.1 * self.revenue
+
+            return biblio_budgetaires
+        else : 
+            for category in self.categories_selectionner :
+
+                if "logement" not in self.__categories :
+
+                    if category == self.__categories[1] :
+                    
+                        biblio_budgetaires[category] = 0.22 * self.revenue
+
+                    if category == self.__categories[2] :
+                        
+                        biblio_budgetaires[category] = 0.25 * self.revenue
+
+                    if category == self.__categories[3] :
+                        
+                        biblio_budgetaires[category] = 0.14 * self.revenue
+
+                    if category == self.__categories[4] :
+                        
+                        biblio_budgetaires[category] = 0.17 * self.revenue
+
+                    if category in self.priorites :
+
+                        biblio_budgetaires[category] += 0.11 * self.revenue
+
+                    return biblio_budgetaires
+
+                if "alimentation" not in self.__categories : 
+
+                    if category == self.__categories[0] :
+
+                        biblio_budgetaires[category] = 0.33 * self.revenue
+
+                    if category == self.__categories[2] :
+                        
+                        biblio_budgetaires[category] = 0.21 * self.revenue
+
+                    if category == self.__categories[3] :
+                        
+                        biblio_budgetaires[category] = 0.10 * self.revenue
+
+                    if category == self.__categories[4] :
+                        
+                        biblio_budgetaires[category] = 0.3 * self.revenue
+
+                    if category in self.priorites :
+
+                        biblio_budgetaires[category] += 0.115 * self.revenue
+
+                    return biblio_budgetaires
+
+                if "transport" not in self.__categories : 
+                    if category == self.__categories[0] :
+
+                        biblio_budgetaires[category] = 0.34 * self.revenue
+
+                    if category == self.__categories[1] :
+                        
+                        biblio_budgetaires[category] = 0.19 * self.revenue
+
+                    if category == self.__categories[3] :
+                        
+                        biblio_budgetaires[category] = 0.11 * self.revenue
+
+                    if category == self.__categories[4] :
+                        
+                        biblio_budgetaires[category] = 0.14 * self.revenue
+
+                    if category in self.priorites :
+
+                        biblio_budgetaires[category] += 0.11 * self.revenue
+
+                    return biblio_budgetaires
+
+                if "sante" not in self.__categories : 
+
+                    if category == self.__categories[0] :
+
+                        biblio_budgetaires[category] = 0.3 * self.revenue
+
+                    if category == self.__categories[1] :
+                        
+                        biblio_budgetaires[category] = 0.15 * self.revenue
+
+                    if category == self.__categories[2] :
+                        
+                        biblio_budgetaires[category] = 0.19 * self.revenue
+
+                    if category == self.__categories[4] :
+                        
+                        biblio_budgetaires[category] = 0.11 * self.revenue
+
+                    if category in self.priorites :
+
+                        biblio_budgetaires[category] += 0.115 * self.revenue
+
+                    return biblio_budgetaires
+
+                if "epargnes" not in self.__categories :
+                    
+                    if category == self.__categories[0] :
+
+                        biblio_budgetaires[category] = 0.32 * self.revenue
+
+                    if category == self.__categories[1] :
+                        
+                        biblio_budgetaires[category] = 0.17 * self.revenue
+
+                    if category == self.__categories[2] :
+                        
+                        biblio_budgetaires[category] = 0.21 * self.revenue
+
+                    if category == self.__categories[3] :
+                        
+                        biblio_budgetaires[category] = 0.09 * self.revenue
+
+                    if category in self.priorites :
+
+                        biblio_budgetaires[category] += 0.11 * self.revenue
+
+                    return biblio_budgetaires
+                   
+
+
                 
-                biblio_budgetaires[category] = 0.15 * self.revenue
 
-            if category == self.__categories[2] :
-                
-                biblio_budgetaires[category] = 0.18 * self.revenue
-
-            if category == self.__categories[3] :
-                
-                biblio_budgetaires[category] = 0.07 * self.revenue
-
-            if category == self.__categories[4] :
-                
-                biblio_budgetaires[category] = 0.1 * self.revenue
-
-            if category in self.priorites :
-
-                biblio_budgetaires[category] += 0.1 * self.revenue
-                
-
-        return biblio_budgetaires
+       
     
     def ajouter_depenses_jounalieres_and_recuperer_depenses_mensuelles( self,montant,annee, mois,date = datetime.date) :
         dict_journalier = {}
