@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmoneo - Gérez votre budget</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename=('images/apple-touch-icon.png'))}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename=('images/favicon-32x32.png'))}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename=('images/favicon-16x16.png'))}}">
+
+    <link rel="manifest" href="{{url_for('static', filename=('images/site.webmanifest'))}}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename=('css/accueil.css'))}}">
+</head>
+
+<body>
+    <div class="welcome-screen">
+        <div class="welcome-content">
+            <div class="logo">
+                <img src="{{url_for('static', filename=('images/logo.png'))}}" alt="Harmoneo Logo">
+            </div>
+            <h1 class="brand-name">Harmoneo</h1>
+            <p class="tagline">Anticipez vos dépenses et sécurisez votre trésorerie</p>
+            <button class="start-app">
+                <span>Démarrer</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-step active" data-step="1">
+                <div class="step-indicator">1</div>
+                <div class="step-label">Profil</div>
+            </div>
+            <div class="progress-step" data-step="2">
+                <div class="step-indicator">2</div>
+                <div class="step-label">Catégories</div>
+            </div>
+            <div class="progress-step" data-step="3">
+                <div class="step-indicator">3</div>
+                <div class="step-label">Priorités</div>
+            </div>
+            <div class="progress-step" data-step="4">
+                <div class="step-indicator">4</div>
+                <div class="step-label">Dépenses</div>
+            </div>
+        </div>
+
+        <form action="/apercu" method="post" id="budget-form">
+            <div class="card">
+                <section class="form-section active" id="profile-section">
+                    <h2>Votre profil</h2>
+                    <p class="section-description">
+                        Pour vous offrir une expérience personnalisée, veuillez compléter ces informations essentielles.
+                    </p>
+
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="user_name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Âge</label>
+                        <input type="number" id="age" name="user_age" placeholder="Votre âge" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="revenue">Revenu mensuel (€)</label>
+                        <input type="number" id="revenue" name="user_revenue" placeholder="Votre revenu mensuel"
+                            required>
+                    </div>
+                </section>
+
+                <section class="form-section" id="categories-section">
+                    <h2>Catégories budgétaires</h2>
+                    <p class="section-description">
+                        Sélectionnez les catégories budgétaires qui vous concernent pour une meilleure gestion de vos
+                        dépenses.
+                    </p>
+
+                    <div class="category-list">
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-home category-icon"></i>
+                                <span>Logement</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="radio" id="logementOUI" name="logement" value="oui" required>
+                                <label for="logementOUI" class="toggle-yes">Oui</label>
+                                <input type="radio" id="logementNON" name="logement" value="non">
+                                <label for="logementNON" class="toggle-no">Non</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-utensils category-icon"></i>
+                                <span>Alimentation</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="radio" id="AlimentationOUI" name="alimentation" value="oui" required>
+                                <label for="AlimentationOUI" class="toggle-yes">Oui</label>
+                                <input type="radio" id="AlimentationNON" name="alimentation" value="non">
+                                <label for="AlimentationNON" class="toggle-no">Non</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-bus category-icon"></i>
+                                <span>Transport</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="radio" id="TransportOUI" name="transport" value="oui" required>
+                                <label for="TransportOUI" class="toggle-yes">Oui</label>
+                                <input type="radio" id="TransportNON" name="transport" value="non">
+                                <label for="TransportNON" class="toggle-no">Non</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-medkit category-icon"></i>
+                                <span>Santé</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="radio" id="SanteOUI" name="sante" value="oui" required>
+                                <label for="SanteOUI" class="toggle-yes">Oui</label>
+                                <input type="radio" id="SanteNON" name="sante" value="non">
+                                <label for="SanteNON" class="toggle-no">Non</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-piggy-bank category-icon"></i>
+                                <span>Épargnes personnelles</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="radio" id="EpargnesOUI" name="epargnes" value="oui" required>
+                                <label for="EpargnesOUI" class="toggle-yes">Oui</label>
+                                <input type="radio" id="EpargnesNON" name="epargnes" value="non">
+                                <label for="EpargnesNON" class="toggle-no">Non</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section" id="priorities-section">
+                    <h2>Vos priorités financières</h2>
+                    <p class="section-description">
+                        Identifiez vos deux priorités financières principales pour optimiser votre budget personnel.
+                    </p>
+                    <div class="priority-info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Veuillez sélectionner exactement deux catégories prioritaires</span>
+                    </div>
+
+                    <div class="category-list priority-list">
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-home category-icon"></i>
+                                <span>Logement</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="checkbox" id="prioritesLogementOUI" name="priorites_logement" value="oui"
+                                    class="priority-checkbox">
+                                <label for="prioritesLogementOUI" class="toggle-yes">Priorité</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-utensils category-icon"></i>
+                                <span>Alimentation</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="checkbox" id="prioritesAlimentationOUI" name="priorites_alimentation"
+                                    value="oui" class="priority-checkbox">
+                                <label for="prioritesAlimentationOUI" class="toggle-yes">Priorité</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-bus category-icon"></i>
+                                <span>Transport</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="checkbox" id="prioritesTransportOUI" name="priorites_transport" value="oui"
+                                    class="priority-checkbox">
+                                <label for="prioritesTransportOUI" class="toggle-yes">Priorité</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-medkit category-icon"></i>
+                                <span>Santé</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="checkbox" id="prioritesSanteOUI" name="priorites_sante" value="oui"
+                                    class="priority-checkbox">
+                                <label for="prioritesSanteOUI" class="toggle-yes">Priorité</label>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-piggy-bank category-icon"></i>
+                                <span>Épargnes personnelles</span>
+                            </div>
+                            <div class="toggle-buttons">
+                                <input type="checkbox" id="prioritesEpargnesOUI" name="priorites_epargnes" value="oui"
+                                    class="priority-checkbox">
+                                <label for="prioritesEpargnesOUI" class="toggle-yes">Priorité</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section" id="expenses-section">
+                    <h2>Vos dépenses actuelles</h2>
+                    <p class="section-description">
+                        Indiquez vos dépenses mensuelles habituelles pour chaque catégorie sélectionnée.
+                    </p>
+
+                    <div class="expenses-form">
+                        <div class="form-group expense-item" id="expense-logement">
+                            <div class="expense-label">
+                                <i class="fas fa-home category-icon"></i>
+                                <label for="logement-expense">Logement</label>
+                            </div>
+                            <div class="expense-input">
+                                <span class="currency-symbol">€</span>
+                                <input type="number" id="logement-expense" name="user_old_logement"
+                                    placeholder="Montant mensuel">
+                            </div>
+                        </div>
+
+                        <div class="form-group expense-item" id="expense-alimentation">
+                            <div class="expense-label">
+                                <i class="fas fa-utensils category-icon"></i>
+                                <label for="alimentation-expense">Alimentation</label>
+                            </div>
+                            <div class="expense-input">
+                                <span class="currency-symbol">€</span>
+                                <input type="number" id="alimentation-expense" name="user_old_alimentation"
+                                    placeholder="Montant mensuel">
+                            </div>
+                        </div>
+
+                        <div class="form-group expense-item" id="expense-transport">
+                            <div class="expense-label">
+                                <i class="fas fa-bus category-icon"></i>
+                                <label for="transport-expense">Transport</label>
+                            </div>
+                            <div class="expense-input">
+                                <span class="currency-symbol">€</span>
+                                <input type="number" id="transport-expense" name="user_old_transport"
+                                    placeholder="Montant mensuel">
+                            </div>
+                        </div>
+
+                        <div class="form-group expense-item" id="expense-sante">
+                            <div class="expense-label">
+                                <i class="fas fa-medkit category-icon"></i>
+                                <label for="sante-expense">Santé</label>
+                            </div>
+                            <div class="expense-input">
+                                <span class="currency-symbol">€</span>
+                                <input type="number" id="sante-expense" name="user_old_sante"
+                                    placeholder="Montant mensuel">
+                            </div>
+                        </div>
+
+                        <div class="form-group expense-item" id="expense-epargnes">
+                            <div class="expense-label">
+                                <i class="fas fa-piggy-bank category-icon"></i>
+                                <label for="epargnes-expense">Épargnes personnelles</label>
+                            </div>
+                            <div class="expense-input">
+                                <span class="currency-symbol">€</span>
+                                <input type="number" id="epargnes-expense" name="user_old_epargnes"
+                                    placeholder="Montant mensuel">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" id="Precedent" class="btn-previous">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Précédent</span>
+                </button>
+                <button type="button" id="Suivant" class="btn-next">
+                    <span>Suivant</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{url_for('static', filename=('javascript/accueil.js'))}}"></script>
+</body>
+
+</html>

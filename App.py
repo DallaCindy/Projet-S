@@ -1,42 +1,14 @@
 from flask import Flask, render_template, request
-
 from Core import Core
 
 app = Flask(__name__)
 
-# @app.route("/")
-# def hello_world():
-#     return "<p>Hello, World!</p>"
-
-
 @app.route("/")
-def App() :
-    return render_template('Acceuil.html')
+def accueil() :
+    return render_template('accueil.html')
 
 @app.route("/apercu", methods=['POST'])
-def Apercu() :
-
-    # user_name
-    # user_age
-    # user_revenue
-
-    # logement
-    # alimentation
-    # transport
-    # sante
-    # epargnes
-
-    # priorites_logement
-    # priorites_alimentation
-    # priorites_transport
-    # priorites_sante
-    # priorites_epargnes
-
-    # user_old_logement
-    # user_old_alimentation
-    # user_old_transport
-    # user_old_sante
-    # user_old_epargnes
+def apercu() :
 
     informations = {}
     data = request.form
@@ -53,7 +25,7 @@ def Apercu() :
     print(regle75_15_10)
     print(personnaliser)
 
-    return render_template('Apercu.html',
+    return render_template('apercu.html',
         resultat=regle50_30_20,
         resultat2=regle75_15_10,
         resultat3=personnaliser
