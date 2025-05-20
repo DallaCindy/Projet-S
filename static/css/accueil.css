@@ -412,6 +412,10 @@ input[type="radio"]:checked+.toggle-no {
     background-color: var(--primary-dark);
 }
 
+.category-list.priority-list .toggle-yes {
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) var(--border-radius-sm) var(--border-radius-sm);
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .card {

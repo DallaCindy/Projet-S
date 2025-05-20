@@ -1,35 +1,33 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Retrieve URL parameters
+
     const urlParams = new URLSearchParams(window.location.search);
 
-    // Sample data from form (in a real application, this would come from the form submission)
-    // For demonstration, we're using data passed via URL or hardcoded values
     const userData = {
-        name: urlParams.get('user_name') || "{{user_name}}",
-        age: parseInt(urlParams.get('user_age') || "{{user_age}}"),
-        revenue: parseInt(urlParams.get('user_revenue') || "{{user_revenue}}"),
+        name: urlParams.get('user_name') || allInformations.user_name,
+        age: parseInt(urlParams.get('user_age') || allInformations.user_age),
+        revenue: parseInt(urlParams.get('user_revenue') || allInformations.user_revenue),
 
         // Categories selected (oui/non)
-        logement: urlParams.get('logement') || "{{logement}}",
-        alimentation: urlParams.get('alimentation') || "{{alimentation}}",
-        transport: urlParams.get('transport') || "{{transport}}",
-        sante: urlParams.get('sante') || "{{sante}}",
-        epargnes: urlParams.get('epargnes') || "{{epargnes}}",
+        logement: urlParams.get('logement') || allInformations.logement,
+        alimentation: urlParams.get('alimentation') || allInformations.alimentation,
+        transport: urlParams.get('transport') || allInformations.transport,
+        sante: urlParams.get('sante') || allInformations.sante,
+        epargnes: urlParams.get('epargnes') || allInformations.epargnes,
 
         // Priorities
-        priorites_logement: urlParams.get('priorites_logement') || "{{priorites_logement}}",
-        priorites_alimentation: urlParams.get('priorites_alimentation') || "{{priorites_alimentation}}",
-        priorites_transport: urlParams.get('priorites_transport') || "{{priorites_transport}}",
-        priorites_sante: urlParams.get('priorites_sante') || "{{priorites_sante}}",
-        priorites_epargnes: urlParams.get('priorites_epargnes') || "{{priorites_epargnes}}",
+        priorites_logement: urlParams.get('priorites_logement') || allInformations.priorites_logement,
+        priorites_alimentation: urlParams.get('priorites_alimentation') || allInformations.priorites_alimentation,
+        priorites_transport: urlParams.get('priorites_transport') || allInformations.priorites_transport,
+        priorites_sante: urlParams.get('priorites_sante') || allInformations.priorites_sante,
+        priorites_epargnes: urlParams.get('priorites_epargnes') || allInformations.priorites_epargnes,
 
         // Current expenses
-        user_old_logement: parseInt(urlParams.get('user_old_logement') || "{{user_old_logement}}") || 0,
-        user_old_alimentation: parseInt(urlParams.get('user_old_alimentation') || "{{user_old_alimentation}}") || 0,
-        user_old_transport: parseInt(urlParams.get('user_old_transport') || "{{user_old_transport}}") || 0,
-        user_old_sante: parseInt(urlParams.get('user_old_sante') || "{{user_old_sante}}") || 0,
-        user_old_epargnes: parseInt(urlParams.get('user_old_epargnes') || "{{user_old_epargnes}}") || 0
+        user_old_logement: parseInt(urlParams.get('user_old_logement') || allInformations.user_old_logement) || 0,
+        user_old_alimentation: parseInt(urlParams.get('user_old_alimentation') || allInformations.user_old_alimentation) || 0,
+        user_old_transport: parseInt(urlParams.get('user_old_transport') || allInformations.user_old_transport) || 0,
+        user_old_sante: parseInt(urlParams.get('user_old_sante') || allInformations.user_old_sante) || 0,
+        user_old_epargnes: parseInt(urlParams.get('user_old_epargnes') || allInformations.user_old_epargnes) || 0
     };
 
     // Fill user profile information
@@ -113,7 +111,7 @@ function calculateTotalExpenses(userData) {
 
 // Format currency values
 function formatCurrency(value) {
-    return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(value);
+    return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'XAF' }).format(value);
 }
 
 // Calculate budget allocations including category distribution

@@ -25,7 +25,10 @@ def apercu() :
     print(regle75_15_10)
     print(personnaliser)
 
+    print(informations)
+
     return render_template('apercu.html',
+        informations=informations,
         resultat=regle50_30_20,
         resultat2=regle75_15_10,
         resultat3=personnaliser

@@ -38,6 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Show specific step
     function showStep(stepNumber) {
+
+        if (stepNumber === 3) {
+            enablePriorities();
+        }
+
         // Hide all sections
         sections.forEach(section => {
             section.classList.remove('active');
@@ -180,20 +185,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Listen for changes on category selections
         document.querySelectorAll('input[type="radio"][value="oui"]').forEach(radio => {
-            radio.addEventListener('change', updateExpenseVisibility);
+            radio.addEventListener('change', () => {
+                updateExpenseVisibility('expense-');
+                updateExpenseVisibility('priorites-');
+            });
         });
 
         document.querySelectorAll('input[type="radio"][value="non"]').forEach(radio => {
-            radio.addEventListener('change', updateExpenseVisibility);
+            radio.addEventListener('change', () => {
+                updateExpenseVisibility('expense-');
+                updateExpenseVisibility('priorites-');
+            });
         });
     }
 
     // Update expense item visibility based on selected categories
-    function updateExpenseVisibility() {
+    function updateExpenseVisibility(prefix = 'expense-') {
         const selectedCategories = getSelectedCategories();
 
         selectedCategories.forEach(category => {
-            const expenseItem = document.getElementById(`expense-${category.name}`);
+            const expenseItem = document.getElementById(`${prefix + category.name}`);
             if (expenseItem) {
                 expenseItem.style.display = category.selected === 'oui' ? 'flex' : 'none';
 
@@ -227,6 +238,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+    }
+
+    function enablePriorities() {
+        const cards = document.querySelector('.category-list.priority-list');
     }
 
     // Event listeners

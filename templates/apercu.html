@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmoneo - Aperçu de votre budget</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename=('images/apple-touch-icon.png'))}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename=('images/favicon-32x32.png'))}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename=('images/favicon-16x16.png'))}}">
+    <link rel="manifest" href="{{url_for('static', filename=('images/site.webmanifest'))}}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename=('css/apercu.css'))}}">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="{{url_for('static', filename=('images/logo.png'))}}" alt="Harmoneo Logo">
+                <div class="brand-name">Harmoneo</div>
+            </div>
+            <h1>Aperçu de votre budget</h1>
+            <p class="welcome-message">Bonjour <strong id="userName">{{informations.user_name}}</strong>, voici votre plan budgétaire personnel</p>
+        </header>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    Votre profil
+                </div>
+                <p class="section-description">
+                    Basé sur les informations que vous avez fournies, nous avons créé un aperçu de votre budget.
+                </p>
+            </div>
+
+            <div class="profile-summary">
+                <div class="profile-item">
+                    <div class="profile-label">Revenu mensuel</div>
+                    <div class="profile-value" id="userRevenue">0 FCFA</div>
+                </div>
+                <div class="profile-item">
+                    <div class="profile-label">Âge</div>
+                    <div class="profile-value" id="userAge">0</div>
+                </div>
+                <div class="profile-item">
+                    <div class="profile-label">Dépenses actuelles</div>
+                    <div class="profile-value" id="totalExpenses">0 FCFA</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="section-title">
+                    <i class="fas fa-chart-pie"></i>
+                    Plans budgétaires recommandés
+                </div>
+                <p class="section-description">
+                    Examinez ces deux plans budgétaires basés sur des stratégies financières éprouvées.
+                </p>
+            </div>
+
+            <div class="budget-tab-container">
+                <div class="budget-tabs">
+                    <button class="tab-button active" data-tab="tab1">Règle 50/30/20</button>
+                    <button class="tab-button" data-tab="tab2">Règle 75/15/10</button>
+                    <button class="tab-button" data-tab="tab2">Règle Personnalisé</button>
+                </div>
+
+                <div class="tab-content active" id="tab1">
+                    <div class="budget-chart-container">
+                        <div class="chart-heading">
+                            Répartition budgétaire 50/30/20
+                        </div>
+                        <div class="budget-chart" id="chart1">
+                            <!-- Chart will be rendered dynamically -->
+                            <div class="chart-center">
+                                <div class="chart-value" id="totalRevenue1">0 FCFA</div>
+                                <div class="chart-label">Revenu total</div>
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #1a8755"></div>
+                                <div class="legend-label">Besoins (50%)</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ffd700"></div>
+                                <div class="legend-label">Désirs (30%)</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ff6b6b"></div>
+                                <div class="legend-label">Épargne (20%)</div>
+                            </div>
+                        </div>
+                        <button class="toggle-details" id="toggleDetails1">
+                            <span>Voir le détail</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="details-section" id="detailsSection1">
+                            <ul class="details-list">
+                                <li class="details-item">
+                                    <span>Besoins (50%)</span>
+                                    <span id="needs50">0 FCFA</span>
+                                </li>
+                                <li class="details-item">
+                                    <span>Désirs (30%)</span>
+                                    <span id="wants30">0 FCFA</span>
+                                </li>
+                                <li class="details-item">
+                                    <span>Épargne (20%)</span>
+                                    <span id="savings20">0 FCFA</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="budget-details" id="budgetDetails1">
+                        <!-- Budget categories will be dynamically populated -->
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab2">
+                    <div class="budget-chart-container">
+                        <div class="chart-heading">
+                            Répartition budgétaire 75/15/10
+                        </div>
+                        <div class="budget-chart" id="chart2">
+                            <!-- Chart will be rendered dynamically -->
+                            <div class="chart-center">
+                                <div class="chart-value" id="totalRevenue2">0 FCFA</div>
+                                <div class="chart-label">Revenu total</div>
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #1a8755"></div>
+                                <div class="legend-label">Besoins (75%)</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ffd700"></div>
+                                <div class="legend-label">Désirs (15%)</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ff6b6b"></div>
+                                <div class="legend-label">Épargne (10%)</div>
+                            </div>
+                        </div>
+                        <button class="toggle-details" id="toggleDetails2">
+                            <span>Voir le détail</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="details-section" id="detailsSection2">
+                            <ul class="details-list">
+                                <li class="details-item">
+                                    <span>Besoins (75%)</span>
+                                    <span id="needs75">0 FCFA</span>
+                                </li>
+                                <li class="details-item">
+                                    <span>Désirs (15%)</span>
+                                    <span id="wants15">0 FCFA</span>
+                                </li>
+                                <li class="details-item">
+                                    <span>Épargne (10%)</span>
+                                    <span id="savings10">0 FCFA</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="budget-details" id="budgetDetails2">
+                        <!-- Budget categories will be dynamically populated -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card budget-tips">
+            <div class="section-title">
+                <i class="fas fa-lightbulb"></i>
+                Conseils budgétaires personnalisés
+            </div>
+            <p class="section-description">
+                Quelques conseils adaptés à votre situation financière pour vous aider à atteindre vos objectifs.
+            </p>
+            <div class="tip-list">
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-check-circle tip-icon"></i>
+                        Suivi régulier
+                    </div>
+                    <p class="tip-content">
+                        Suivez vos dépenses au moins une fois par semaine pour rester sur la bonne voie et ajuster votre budget si nécessaire.
+                    </p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-check-circle tip-icon"></i>
+                        Automatisez vos économies
+                    </div>
+                    <p class="tip-content">
+                        Configurez des transferts automatiques vers votre compte d'épargne le jour de votre paie pour atteindre plus facilement vos objectifs.
+                    </p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-check-circle tip-icon"></i>
+                        Fonds d'urgence
+                    </div>
+                    <p class="tip-content">
+                        Essayez de constituer un fonds d'urgence couvrant 3 à 6 mois de dépenses essentielles pour vous protéger des imprévus.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="/" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                <span>Retour</span>
+            </a>
+            <a href="#" class="btn btn-primary" id="downloadPDF">
+                <i class="fas fa-download"></i>
+                <span>Télécharger en PDF</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        try {
+            var allInformations = JSON.parse(`{{ informations|tojson}}`);
+        } catch (error) {
+            alert('Error: ', error.message);
+        }
+    </script>
+    <script src="{{url_for('static', filename=('javascript/apercu.js'))}}"></script>
+</body>
+</html>
