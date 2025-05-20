@@ -96,6 +96,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Download PDF (placeholder for actual functionality)
     document.getElementById('downloadPDF').addEventListener('click', function (e) {
         e.preventDefault();
+
+        const data = new URLSearchParams(allInformations).toString();
+        console.log(data);
+        window.location.href = '/pdf?' + data;
         alert('La fonctionnalité de téléchargement en PDF sera bientôt disponible.');
     });
 });
